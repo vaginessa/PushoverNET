@@ -9,5 +9,11 @@ namespace Pushover.NET
     /// </summary>
     class PushoverOptions
     {
+        #region Properties
+
+        public string AppToken { get; }
+        public string UserKey { get; }
+
+        #endregion
     }
 }
