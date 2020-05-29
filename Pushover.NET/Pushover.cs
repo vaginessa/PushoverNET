@@ -9,6 +9,15 @@ namespace Pushover.NET
     /// </summary>
     class Pushover
     {
+        #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="Pushover"/> instance.
+        /// </summary>
+        public Pushover()
+        {
+        }
+
+        #endregion
     }
 }
