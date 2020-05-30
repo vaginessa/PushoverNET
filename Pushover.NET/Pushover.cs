@@ -14,12 +14,12 @@ namespace Pushover.NET
         #region Fields
 
         /// <summary>
-        /// Represents a collection of <see cref="PushoverOptions"/> passed when creating a new instance of the <see cref="Pushover"/> class.
+        /// The collection of <see cref="PushoverOptions"/> passed when creating a new instance of the <see cref="Pushover"/> class.
         /// </summary>
         private readonly PushoverOptions _options;
 
         /// <summary>
-        /// Represents the <see cref="HttpClient"/> used to send the notification.
+        /// The <see cref="HttpClient"/> used to send the notification.
         /// </summary>
         private static readonly HttpClient _client = new HttpClient();
 
