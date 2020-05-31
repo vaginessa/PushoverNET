@@ -9,27 +9,21 @@ namespace Pushover.NET
     /// </summary>
     class Message
     {
+        #region Constructor
+
+        public Message(MessageOptions options)
+        {
+            Options = options;
+        }
+
+        #endregion
+
         #region Properties
 
         /// <summary>
-        /// The title of the <see cref="Message"/> being sent.
+        /// The <see cref="Message"/> options added when creating a new instance.
         /// </summary>
-        public string Title { get; set; }
-
-        /// <summary>
-        /// The body of the <see cref="Message"/> being sent.
-        /// </summary>
-        public string Body { get; set; }
-
-        /// <summary>
-        /// The device to which the <see cref="Message"/> is being sent.
-        /// </summary>
-        public string Device { get; set; }
-
-        /// <summary>
-        /// The notification sound used when receiving the <see cref="Message"/>.
-        /// </summary>
-        public string Sound { get; set; }
+        public MessageOptions Options { get; set; }
 
         #endregion
     }
