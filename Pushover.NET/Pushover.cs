@@ -21,7 +21,12 @@ namespace Pushover.NET
         /// <summary>
         /// The <see cref="HttpClient"/> used to send the notification.
         /// </summary>
-        private static readonly HttpClient _client = new HttpClient();
+        private static readonly HttpClient _client;
+
+        /// <summary>
+        /// The Pushover API web address
+        /// </summary>
+        private readonly Uri uri = new Uri("https://api.pushover.net/1/messages.json");
 
         #endregion
 
@@ -36,5 +41,27 @@ namespace Pushover.NET
         }
 
         #endregion
+
+        #region Methods
+
+        public async Task<string> SendNotificationAsync(Message message)
+        {
+            var parameters = new Dictionary<string, string>
+            {
+                { "token", _options.AppToken },
+                { "user", _options.UserKey },
+                { "title", message.Options.Title },
+                { "message", message.Options.Body },
+                { "device", message.Options.Device },
+                { "sound", message.Options.Sound }
+            };
+
+            var content = new FormUrlEncodedContent(parameters);
+            var response = await _client.PostAsync(uri, content);
+            var output = response.StatusCode.ToString();
+            return output;
         }
+
+        #endregion
+    }
 }
