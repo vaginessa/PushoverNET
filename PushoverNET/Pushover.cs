@@ -4,12 +4,12 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pushover.NET
+namespace PushoverNET
 {
     /// <summary>
     /// Represents a <see cref="Pushover"/> client used to send a notification.
     /// </summary>
-    class Pushover
+    public class Pushover
     {
         #region Fields
 
@@ -21,7 +21,7 @@ namespace Pushover.NET
         /// <summary>
         /// The <see cref="HttpClient"/> used to send the notification.
         /// </summary>
-        private static readonly HttpClient _client;
+        private static readonly HttpClient _client = new HttpClient();
 
         /// <summary>
         /// The Pushover API web address
@@ -58,7 +58,7 @@ namespace Pushover.NET
 
             var content = new FormUrlEncodedContent(parameters);
             var response = await _client.PostAsync(uri, content);
-            var output = response.StatusCode.ToString();
+            var output = await response.Content.ReadAsStringAsync();
             return output;
         }
 

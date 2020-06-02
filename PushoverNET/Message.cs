@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Pushover.NET
+namespace PushoverNET
 {
     /// <summary>
     /// Represents a <see cref="Message"/> sent as a notification through the <see cref="Pushover"/> client.
     /// </summary>
-    class Message
+    public class Message
     {
         #region Constructor
 
