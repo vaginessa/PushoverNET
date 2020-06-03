@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PushoverNET
+namespace PushoverNET.Enums
 {
+    /// <summary>
+    /// All the possible options for a notification sound.
+    /// </summary>
     public enum Sounds
     {
         Pushover,
