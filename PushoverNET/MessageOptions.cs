@@ -29,7 +29,7 @@ namespace PushoverNET
         /// <summary>
         /// The notification sound used when receiving the <see cref="Message"/>.
         /// </summary>
-        public string Sound { get; set; }
+        public Sounds Sound { get; set; }
 
         #endregion
     }
