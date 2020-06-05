@@ -35,7 +35,7 @@ namespace PushoverNET
         /// <summary>
         /// The notification priority.
         /// </summary>
-        public Priorities Priority { get; set; }
+        public Priorities Priority { get; set; } = Priorities.Normal;
 
         /// <summary>
         /// The time interval in seconds before sending again an <see cref="Priorities.Emergency"/> notification.

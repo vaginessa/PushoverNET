@@ -53,7 +53,10 @@ namespace PushoverNET
                 { "title", message.Options.Title },
                 { "message", message.Options.Body },
                 { "device", message.Options.Device },
-                { "sound", message.Options.Sound.ToString().ToLower() }
+                { "sound", message.Options.Sound.ToString().ToLower() },
+                { "priority", Convert.ToInt32(message.Options.Priority).ToString() },
+                { "retry", message.Options.RetryInterval.ToString() },
+                { "expire", message.Options.ExpireInterval.ToString() }
             };
 
             var content = new FormUrlEncodedContent(parameters);
