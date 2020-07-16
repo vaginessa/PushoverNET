@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -44,7 +45,7 @@ namespace PushoverNET
 
         #region Methods
 
-        public async Task<string> SendNotificationAsync(Message message)
+        public async Task<Response> SendNotificationAsync(Message message)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -55,14 +56,16 @@ namespace PushoverNET
                 { "device", message.Options.Device },
                 { "sound", message.Options.Sound.ToString().ToLower() },
                 { "priority", Convert.ToInt32(message.Options.Priority).ToString() },
-                { "retry", message.Options.RetryInterval.ToString() },
-                { "expire", message.Options.ExpireInterval.ToString() }
+                { "retry", message.Options.RetryInterval.TotalSeconds.ToString() },
+                { "expire", message.Options.ExpireInterval.TotalSeconds.ToString() }
             };
 
             var content = new FormUrlEncodedContent(parameters);
-            var response = await _client.PostAsync(uri, content);
-            var output = await response.Content.ReadAsStringAsync();
-            return output;
+            var response = await _client.PostAsync(uri, content).ConfigureAwait(false);
+            var s = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var json = JsonConvert.DeserializeObject<Response>(s);
+
+            return json;
         }
 
         #endregion
