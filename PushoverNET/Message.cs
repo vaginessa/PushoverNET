@@ -21,6 +21,11 @@ namespace PushoverNET
         #region Properties
 
         /// <summary>
+        /// The <see cref="Message"/> text required when sending a notification.
+        /// </summary>
+        public string Body { get; set; }
+
+        /// <summary>
         /// The <see cref="Message"/> options added when creating a new instance.
         /// </summary>
         public MessageOptions Options { get; set; }

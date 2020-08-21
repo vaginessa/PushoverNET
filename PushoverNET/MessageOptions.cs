@@ -18,11 +18,6 @@ namespace PushoverNET
         public string Title { get; set; }
 
         /// <summary>
-        /// The body of the <see cref="Message"/> being sent.
-        /// </summary>
-        public string Body { get; set; }
-
-        /// <summary>
         /// The device to which the <see cref="Message"/> is being sent.
         /// </summary>
         public string Device { get; set; }

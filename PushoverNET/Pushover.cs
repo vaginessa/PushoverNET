@@ -52,7 +52,7 @@ namespace PushoverNET
                 { "token", _options.AppToken },
                 { "user", _options.UserKey },
                 { "title", message.Options.Title },
-                { "message", message.Options.Body },
+                { "message", message.Body },
                 { "device", message.Options.Device },
                 { "sound", message.Options.Sound.ToString().ToLower() },
                 { "priority", Convert.ToInt32(message.Options.Priority).ToString() },
